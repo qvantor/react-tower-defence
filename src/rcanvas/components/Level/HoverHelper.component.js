@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 
 import { graphToGlobal } from '../../common/helpers'
 
+import { checkPosition } from 'reducers/graph/graph.actions'
+
 class HoverHelper extends Component {
   static propTypes = {
     square: PropTypes.number.isRequired,
@@ -14,7 +16,8 @@ class HoverHelper extends Component {
   render () {
     const { square, hover } = this.props
 
-    const material = new THREE.MeshBasicMaterial({ color: 0x0000ff, transparent: true, opacity: .5 })
+    const color = checkPosition(hover) ? 0x2ecc71 : 0xe74c3c
+    const material = new THREE.MeshBasicMaterial({ color, transparent: true, opacity: .7 })
 
     return (<planeBuffer
       material={material}

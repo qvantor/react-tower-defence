@@ -9,8 +9,11 @@ let g
 let pathFinder
 
 export const setHover = pos => (dispatch, getState) => {
-  const { graph: { hover } } = getState()
+  const { graph: { hover }, levels } = getState()
   if (hover[0] === pos[0] && hover[1] === pos[1]) return
+  // const { field } = levels.list.find(item => item.id === levels.active)
+  // pos[0] = pos[0] > field[0] ? field[0] : pos[0]
+  // pos[1] = pos[1] > field[1] ? field[1] : pos[1]
   dispatch({ type: constants.POINT_HOVERED, payload: pos })
 }
 
@@ -43,24 +46,26 @@ export function newGraph (field) {
 }
 
 export function findPath () {
-  const { levels } = store.getState()
-  const level = levels.list.find(i => i.id === levels.active)
-  const path = pathFinder.find(coordToId(level.portal), coordToId(level.gate))
+  const { levels, progress: { level } } = store.getState()
+  const levelObj = levels.list.find(i => i.id === level)
+  const path = pathFinder.find(coordToId(levelObj.portal), coordToId(levelObj.gate))
   store.dispatch({ type: constants.PATH_CALCULATED, payload: path.map(item => idToCoord(item.id)) })
 }
 
 export function checkPosition (position) {
-  const { graph: { buildings }, levels } = store.getState()
+  const { graph: { buildings }, levels, progress: { level } } = store.getState()
   const buildingCollision = buildings
     .find(item => item.position[0] === position[0] && item.position[1] === position[1])
   if (buildingCollision) return false
 
-  const level = levels.list.find(item => item.id === levels.active)
-  if (!g) newGraph(level.field) //@todo fix it with initial event
+  const levelObj = levels.list.find(item => item.id === level)
+  if (levelObj.portal[0] === position[0] && levelObj.portal[1] === position[1]) return false
+  if (levelObj.gate[0] === position[0] && levelObj.gate[1] === position[1]) return false
+  if (!g) newGraph(levelObj.field) //@todo fix it with initial event
   const tG = graphClone(g)
   tG.removeNode(coordToId(position))
   const tFinder = path.aStar(tG)
-  return tFinder.find(coordToId(level.portal), coordToId(level.gate)).length !== 0
+  return tFinder.find(coordToId(levelObj.portal), coordToId(levelObj.gate)).length !== 0
 }
 
 export const addBuilding = () => (dispatch, getState) => {

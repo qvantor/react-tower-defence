@@ -25,7 +25,7 @@ class Gate extends Component {
 
 const mapStateToProps = state => ({
   square: state.config.field.square,
-  position: state.levels.list.find(item => item.id === state.levels.active).gate
+  position: state.levels.list.find(item => item.id === state.progress.level).gate
 })
 
 export default connect(mapStateToProps)(Gate)

@@ -48,7 +48,7 @@ class Level extends Component {
 }
 
 const mapStateToProps = state => ({
-  field: state.levels.list.find(item => item.id === state.levels.active).field,
+  field: state.levels.list.find(item => item.id === state.progress.level).field,
   square: state.config.field.square
 })
 

@@ -25,7 +25,7 @@ class Portal extends Component {
 
 const mapStateToProps = state => ({
   square: state.config.field.square,
-  position: state.levels.list.find(item => item.id === state.levels.active).portal
+  position: state.levels.list.find(item => item.id === state.progress.level).portal
 })
 
 export default connect(mapStateToProps)(Portal)

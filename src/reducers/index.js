@@ -5,5 +5,8 @@ import graph from './graph'
 import config from './config'
 import buildings from './buildings/buildings.reducer'
 import player from './player/player.reducer'
+import enemies from './enemies/enemies.reducer'
+import waves from './waves/waves.reducer'
+import progress from './progress/progress.reducer'
 
-export default combineReducers({ levels, graph, config, buildings, player })
+export default combineReducers({ levels, graph, config, buildings, player, enemies, waves, progress })
