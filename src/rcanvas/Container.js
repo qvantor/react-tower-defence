@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-
+import Stats from 'stats.js'
 import Events from './modules/Events'
 
 import TrackballControls from './modules/trackballControls'
@@ -17,12 +17,16 @@ export default class Container extends Events {
     this.camera.position.z = 1000
     this.controls = new TrackballControls(this.camera)
 
+    this.stats = new Stats()
+    this.canvas.appendChild(this.stats.dom)
     this.animate()
   }
 
   animate = () => {
+    this.stats.begin()
     this.renderer.render(this.scene, this.camera)
     this.controls.update()
+    this.stats.end()
     requestAnimationFrame(this.animate)
   }
 

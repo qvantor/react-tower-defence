@@ -12,6 +12,6 @@ export default class mesh extends Component {
     if (!this.root)
       this.root = new THREE.Group()
     this.root.children = []
-    this.root.add(this.props.mesh)
+    this.root.add(this.props.mesh.clone())
   }
 }

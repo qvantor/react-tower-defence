@@ -9,6 +9,7 @@ import Gate from './Gate.component'
 import Path from '../Path/Path.component'
 import ToBuild from '../ToBuild/ToBuild.component'
 import Buildings from '../Buildings/Buildings.component'
+import Enemies from '../Enemies/Enemies.component'
 
 import { setHover, addBuilding } from 'reducers/graph/graph.actions'
 
@@ -41,6 +42,7 @@ class Level extends Component {
         <Gate />
         <Path />
         <Buildings />
+        <Enemies />
         <ToBuild />
       </group>
     )

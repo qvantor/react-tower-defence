@@ -8,8 +8,8 @@ export default Immutable({
         {
           id: 1,
           enemyId: 1,
-          count: 3,
-          appear: 1000
+          count: 500,
+          appear: 100
         }
       ]
     }
