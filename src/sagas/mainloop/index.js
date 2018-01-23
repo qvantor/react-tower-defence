@@ -6,10 +6,9 @@ import { store } from 'store/'
 import { setEnemyPosition } from 'reducers/progress/progress.actions'
 
 const loop = MainLoop
-  .setMaxAllowedFPS(50)
-  .setDraw(e => {
+  .setUpdate(e => {
     const { progress: { activeEnemies } } = store.getState()
-    const positions = activeEnemies.map(item => item.position + (item.speed / 100))
+    const positions = activeEnemies.map(item => item.position + (item.speed / 3000))
     setEnemyPosition(positions)
   })
 
