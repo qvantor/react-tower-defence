@@ -83,7 +83,7 @@ const RendererHostConfig = {
     },
 
     insertBefore (parentInstance, child, beforeChild) {
-      console.log('insertBefore', parentInstance, child, beforeChild)
+      parentInstance.root.add(child.root)
       // noob
     },
 

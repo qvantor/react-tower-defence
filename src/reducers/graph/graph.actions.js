@@ -34,11 +34,6 @@ export function newGraph (field) {
       g.hasNode(`${i + 1}||${j}`) && g.addLink(`${i + 1}||${j}`, `${i}||${j}`)
       g.hasNode(`${i}||${j + 1}`) && g.addLink(`${i}||${j + 1}`, `${i}||${j}`)
       g.hasNode(`${i}||${j - 1}`) && g.addLink(`${i}||${j - 1}`, `${i}||${j}`)
-
-      // g.hasNode(`${i - 1}||${j - 1}`) && g.addLink(`${i - 1}||${j - 1}`, `${i}||${j}`)
-      // g.hasNode(`${i - 1}||${j + 1}`) && g.addLink(`${i - 1}||${j + 1}`, `${i}||${j}`)
-      // g.hasNode(`${i + 1}||${j - 1}`) && g.addLink(`${i + 1}||${j - 1}`, `${i}||${j}`)
-      // g.hasNode(`${i + 1}||${j + 1}`) && g.addLink(`${i + 1}||${j + 1}`, `${i}||${j}`)
     }
   }
   pathFinder = path.aStar(g)
@@ -69,12 +64,12 @@ export function checkPosition (position) {
 }
 
 export const addBuilding = () => (dispatch, getState) => {
-  const { graph: { hover }, player: { toBuild } } = getState()
+  const { graph: { hover, path }, player: { toBuild } } = getState()
   if (!toBuild) return
   if (!checkPosition(hover)) return
 
   g.removeNode(coordToId(hover))
-  findPath()
+  if (path.find(p => p[0] === hover[0] && p[1] === hover[1])) findPath()
   dispatch({ type: constants.BUILDING_ADDED, payload: { position: hover, building: toBuild } })
   dispatch({ type: constPlayer.TO_BUILD_CLEARED })
 }

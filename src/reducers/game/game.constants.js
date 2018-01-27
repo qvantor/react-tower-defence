@@ -1,0 +1,8 @@
+export const LEVEL_SETTED = 'LEVEL_SETTED'
+
+export const ENEMY_SPAWNED = 'ENEMY_SPAWNED'
+export const ENEMY_REMOVED = 'ENEMY_REMOVED'
+export const ENEMY_MOVED = 'ENEMY_MOVED'
+
+export const GATE_HP_INIT = 'GATE_HP_INIT'
+export const GATE_HP_REDUCED = 'GATE_HP_REDUCED'

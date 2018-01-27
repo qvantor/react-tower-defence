@@ -1,5 +1,5 @@
 import { takeEvery, select } from 'redux-saga/effects'
-import * as levelConst from 'reducers/progress/progress.constants'
+import * as levelConst from 'reducers/game/game.constants'
 
 import { newGraph } from 'reducers/graph/graph.actions'
 

@@ -3,10 +3,11 @@ import mesh from './objects/mesh'
 import gridHelper from './helpers/gridHelper'
 import boxBuffer from './geometry/boxBuffer'
 import planeBuffer from './geometry/planeBuffer'
+import circleBuffer from './geometry/circleBuffer'
 import line from './geometry/line'
 
 export default (type, props) => {
-  const types = { group, mesh, boxBuffer, gridHelper, planeBuffer, line }
+  const types = { group, mesh, boxBuffer, gridHelper, planeBuffer, circleBuffer, line }
 
   const instance = new types[type](props)
   instance.setPosition()

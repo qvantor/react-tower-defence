@@ -1,6 +1,4 @@
-import * as THREE from 'three'
 import Immutable from 'seamless-immutable'
-
 
 export default Immutable({
   list: [{
@@ -8,6 +6,7 @@ export default Immutable({
     name: 'Monster #1',
     model: '',
     speed: 2,
+    damage: 10,
     hp: 100
   }]
 })

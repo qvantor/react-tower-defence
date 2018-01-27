@@ -14,6 +14,7 @@ export default {
       field: [20, 20],
       portal: [-9, -9],
       gate: [10, 10],
+      gateHP: 1000,
       waves: [1]
     }
   ]

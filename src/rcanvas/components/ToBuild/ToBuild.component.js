@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
+import Building from '../Buildings/Building.component'
+
 import { graphToGlobal } from '../../common/helpers'
 
 class ToBuild extends Component {
   static propTypes = {
-    toBuild: PropTypes.object,
+    toBuild: PropTypes.string,
     hover: PropTypes.array.isRequired
   }
 
@@ -15,8 +17,9 @@ class ToBuild extends Component {
 
     if (!toBuild) return null
 
-    return (<mesh
-      mesh={toBuild.model.clone()}
+    return (<Building
+      buildingId={toBuild}
+      showRadius={true}
       position={[graphToGlobal(hover[0]), graphToGlobal(hover[1]), 30]}
       rotation={[90, 0, 0]} />)
   }
@@ -24,7 +27,7 @@ class ToBuild extends Component {
 
 const mapStateToProps = state => {
   return {
-    toBuild: state.buildings.list.find(item => item.id === state.player.toBuild),
+    toBuild: state.player.toBuild,
     hover: state.graph.hover
   }
 }

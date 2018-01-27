@@ -1,6 +1,2 @@
-export const LEVEL_SETTED = 'LEVEL_SETTED'
 export const WAVE_STARTED = 'WAVE_STARTED'
 export const WAVE_ENDED = 'WAVE_ENDED'
-
-export const ENEMY_SPAWNED = 'ENEMY_SPAWNED'
-export const ENEMY_MOVED = 'ENEMY_MOVED'

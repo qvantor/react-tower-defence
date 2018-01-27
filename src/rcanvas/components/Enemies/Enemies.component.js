@@ -28,9 +28,6 @@ class Enemies extends Component {
         <mesh
           key={item.id}
           mesh={mesh}
-          // width={15}
-          // height={15}
-          // depth={15}
           position={this.getPos(Path, item.position)} />)}
     </group>)
   }
@@ -38,7 +35,7 @@ class Enemies extends Component {
 
 const mapStateToProps = state => {
   return {
-    enemies: state.progress.activeEnemies,
+    enemies: state.game.activeEnemies,
     enemiesModels: state.enemies.list,
     path: state.graph.path
   }
