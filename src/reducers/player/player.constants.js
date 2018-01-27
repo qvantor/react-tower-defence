@@ -1,2 +1,0 @@
-export const TO_BUILD_SETTED = 'TO_BUILD_SETTED'
-export const TO_BUILD_CLEARED = 'TO_BUILD_CLEARED'
