@@ -14,7 +14,7 @@ export default class Container extends Events {
     this.renderer.setPixelRatio(window.devicePixelRatio)
     this.renderer.setSize(window.innerWidth, window.innerHeight)
     this.canvas.appendChild(this.renderer.domElement)
-    this.camera.position.z = 1000
+    this.camera.position.z = 100
     this.controls = new TrackballControls(this.camera)
 
     this.stats = new Stats()
