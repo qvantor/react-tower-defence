@@ -7,6 +7,8 @@ export default function graph (state = Model, { type, payload }) {
       return state.merge({ path: payload })
     case constants.BUILDING_ADDED:
       return state.merge({ buildings: [...state.buildings, payload] })
+    case constants.CONSTRUCT_ADDED:
+      return state.merge({ constructions: [...state.constructions, payload] })
     case constants.POINT_HOVERED:
       return state.merge({ hover: payload })
     default:

@@ -11,7 +11,7 @@ export default class line extends Component {
   generate () {
     const { vertices, material } = this.props
     this.geometry = new THREE.Geometry()
-    this.material = material || new THREE.LineBasicMaterial({ color: 0xf7d794 })
+    this.material = material || new THREE.LineBasicMaterial({ color: 0x2d3436 })
     vertices.forEach(item => this.geometry.vertices.push(new THREE.Vector3(item[0], item[1], item[2])))
 
     if (this.root) {

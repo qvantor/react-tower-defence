@@ -20,7 +20,7 @@ class Buildings extends Component {
           showRadius={!!toBuild}
           buildingId={item.building}
           rotation={[90, 0, 0]}
-          position={[graphToGlobal(item.position[0]), graphToGlobal(item.position[1]), 30]} />
+          position={[graphToGlobal(item.position[0]), graphToGlobal(item.position[1]), 35]} />
       )}
     </group>)
   }

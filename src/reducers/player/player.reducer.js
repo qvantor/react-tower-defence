@@ -10,6 +10,9 @@ export default function player (state = Model, { type, payload }) {
         break
       case constants.TO_BUILD_CLEARED:
         draft.toBuild = null
+        break
+      case constants.TO_CONSTRUCT_SETTED:
+        draft.toConstruct = payload
     }
   })
 }

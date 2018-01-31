@@ -13,14 +13,15 @@ class ToBuild extends Component {
   }
 
   render () {
-    const { toBuild, hover } = this.props
+    const { toBuild, hover, constructions } = this.props
+    const construct = constructions.find(item => item[0] === hover[0] && item[1] === hover[1])
 
-    if (!toBuild) return null
+    if (!toBuild || !construct) return null
 
     return (<Building
       buildingId={toBuild}
       showRadius={true}
-      position={[graphToGlobal(hover[0]), graphToGlobal(hover[1]), 30]}
+      position={[graphToGlobal(hover[0]), graphToGlobal(hover[1]), 35]}
       rotation={[90, 0, 0]} />)
   }
 }
@@ -28,7 +29,8 @@ class ToBuild extends Component {
 const mapStateToProps = state => {
   return {
     toBuild: state.player.toBuild,
-    hover: state.graph.hover
+    hover: state.graph.hover,
+    constructions: state.graph.constructions
   }
 }
 export default connect(mapStateToProps)(ToBuild)

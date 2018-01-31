@@ -63,13 +63,27 @@ export function checkPosition (position) {
   return tFinder.find(coordToId(levelObj.portal), coordToId(levelObj.gate)).length !== 0
 }
 
-export const addBuilding = () => (dispatch, getState) => {
-  const { graph: { hover, path }, player: { toBuild } } = getState()
-  if (!toBuild) return
+export const addInstance = () => (dispatch, getState) => {
+  const { player: { toBuild, toConstruct } } = getState()
+  if (toConstruct) addConstruct()(dispatch, getState)
+  else if (toBuild) addBuilding()(dispatch, getState)
+}
+
+const addConstruct = () => (dispatch, getState) => {
+  const { graph: { hover, path } } = getState()
   if (!checkPosition(hover)) return
 
   g.removeNode(coordToId(hover))
   if (path.find(p => p[0] === hover[0] && p[1] === hover[1])) findPath()
+  dispatch({ type: constants.CONSTRUCT_ADDED, payload: hover })
+  dispatch({ type: constPlayer.TO_CONSTRUCT_SETTED, payload: false })
+}
+
+const addBuilding = () => (dispatch, getState) => {
+  const { graph: { hover, path, constructions }, player: { toBuild } } = getState()
+  const construct = constructions.find(item => item[0] === hover[0] && item[1] === hover[1])
+  if (!construct) return
+
   dispatch({ type: constants.BUILDING_ADDED, payload: { position: hover, building: toBuild } })
   dispatch({ type: constPlayer.TO_BUILD_CLEARED })
 }

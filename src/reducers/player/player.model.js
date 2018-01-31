@@ -1,4 +1,5 @@
 export default {
   money: 200,
-  toBuild: null
+  toBuild: null,
+  toConstruct: false
 }
