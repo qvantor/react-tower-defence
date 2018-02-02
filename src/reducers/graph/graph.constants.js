@@ -1,4 +1,6 @@
 export const PATH_CALCULATED = 'PATH_CALCULATED'
+
 export const POINT_HOVERED = 'POINT_HOVERED'
 
-export const BUILDING_ADDED = 'BUILDING_ADDED'
+export const BLOCK_ADDED = 'BLOCK_ADDED'
+export const BLOCK_CLEARED = 'BLOCK_CLEARED'

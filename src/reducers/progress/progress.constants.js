@@ -1,0 +1,1 @@
+export const LEVEL_SETTED = 'LEVEL_SETTED'

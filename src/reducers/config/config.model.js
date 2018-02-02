@@ -1,7 +1,8 @@
 import Immutable from 'seamless-immutable'
 
 export default Immutable({
-  path: [],
-  blocks: [],
-  hover: []
+  field: {
+    square: 100,
+    depth: 10
+  }
 })

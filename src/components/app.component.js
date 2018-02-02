@@ -9,6 +9,7 @@ export default class App extends Component {
       <Provider store={store}>
         <div className='container-fluid'>
           <div className='col-md-offset-10 col-md-2'>
+            hi
           </div>
         </div>
       </Provider>
