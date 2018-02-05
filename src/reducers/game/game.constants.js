@@ -1,0 +1,1 @@
+export const BUILD_BLOCK_SETTED = 'BUILD_BLOCK_SETTED'

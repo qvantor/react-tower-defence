@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
 
+import Blocks from './Blocks/Blocks.component'
+
 export default class App extends Component {
   render () {
     const { store } = this.props
@@ -9,7 +11,7 @@ export default class App extends Component {
       <Provider store={store}>
         <div className='container-fluid'>
           <div className='col-md-offset-10 col-md-2'>
-            hi
+            <Blocks />
           </div>
         </div>
       </Provider>

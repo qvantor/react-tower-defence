@@ -10,6 +10,7 @@ export default Immutable([
     gateHP: 1000,
     waves: [1],
     blocksAllowed: 10,
+    moneyAllowed: 100,
     blocks: [[0, 0], [0, 1], [0, 2], [0, 3]]
   }, {
     id: 2,
@@ -19,6 +20,8 @@ export default Immutable([
     gate: [10, 10],
     gateHP: 1000,
     waves: [1],
+    blocksAllowed: 20,
+    moneyAllowed: 100,
     blocks: [[0, 0], [0, 1]]
   }
 ])

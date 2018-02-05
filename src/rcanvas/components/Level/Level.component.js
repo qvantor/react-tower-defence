@@ -11,6 +11,7 @@ import Portal from './Portal.component'
 import HoverHelper from './HoverHelper.component'
 import Blocks from '../Blocks/Blocks.component'
 import Path from '../Path/Path.component'
+import BlockBuild from '../BlockBuild/BlockBuild.component'
 
 class Level extends Component {
   render () {
@@ -22,6 +23,7 @@ class Level extends Component {
         <Gate />
         <Portal />
         <Path />
+        <BlockBuild />
         <HoverHelper />
       </group>
     )
