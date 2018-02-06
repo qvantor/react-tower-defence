@@ -7,6 +7,8 @@ import graph from './graph/graph.reducer'
 import player from './player/player.reducer'
 import game from './game/game.reducer'
 import weapons from './weapons/weapons.reducer'
+import enemies from './enemies/enemies.reducer'
+import waves from './waves/waves.reducer'
 
 export default combineReducers({
   levels,
@@ -15,5 +17,7 @@ export default combineReducers({
   graph,
   player,
   game,
-  weapons
+  weapons,
+  enemies,
+  waves
 })
