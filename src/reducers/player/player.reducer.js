@@ -7,6 +7,8 @@ export default function player (state = Model, { type, payload }) {
       return state.merge({ blocks: state.blocks + payload })
     case constants.ADD_AVAILABLE_MONEY:
       return state.merge({ money: state.money + payload })
+    case constants.PLAYER_BLOCK_USED:
+      return state.merge({ blocks: state.blocks - 1 })
     default:
       return state
   }

@@ -1,21 +1,23 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { buildBlock } from 'reducers/game/game.actions'
+import { buildBlockToggle } from 'reducers/game/game.actions'
 
 class Blocks extends Component {
   render () {
-    const { buildBlock } = this.props
+    const { blocks } = this.props
 
     return (
       <div>
         <h4>Blocks</h4>
-        <h6 onClick={buildBlock}>Add block</h6>
+        {blocks >= 1 && <h6 onClick={buildBlockToggle}>Add block ({blocks})</h6>}
       </div>
     )
   }
 }
 
 const mapStateToProps = state => {
-  return {}
+  return {
+    blocks: state.player.blocks
+  }
 }
-export default connect(mapStateToProps, { buildBlock })(Blocks)
+export default connect(mapStateToProps)(Blocks)

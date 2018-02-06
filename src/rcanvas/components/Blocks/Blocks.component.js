@@ -14,7 +14,7 @@ class Blocks extends Component {
             width={square}
             height={square}
             depth={depth}
-            position={[graphToGlobal(position[0]), graphToGlobal(position[1]), 0]} />)}
+            position={[graphToGlobal(position[0]), graphToGlobal(position[1]), depth / 2]} />)}
       </group>
     )
   }

@@ -11,7 +11,7 @@ export default class boxBuffer extends Component {
   generate () {
     const { width, height, depth, widthSegments, heightSegments, depthSegments, material } = this.props
     this.geometry = new THREE.BoxBufferGeometry(width, height, depth, widthSegments, heightSegments, depthSegments)
-    this.material = material || new THREE.MeshBasicMaterial({ color: 0x000000 })
+    this.material = material || new THREE.MeshBasicMaterial({ color: 0x3498db })
 
     if (this.root) {
       this.root.geometry.dispose()
