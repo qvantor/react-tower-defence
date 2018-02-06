@@ -6,6 +6,14 @@ const { dispatch, getState } = store
 
 let graph
 
+export const checkWeaponPos = pos => {
+  const { graph: { blocks }, game: { weapons } } = getState()
+  const collision = weapons.find(item => item.position[0] === pos[0] && item.position[1] === pos[1])
+  if (collision) return false
+  
+  return blocks.find(item => item.position[0] === pos[0] && item.position[1] === pos[1])
+}
+
 export const checkBlockPos = pos => {
   const { graph: { blocks }, levels, progress: { level } } = getState()
   const collision = blocks.find(item => item.position[0] === pos[0] && item.position[1] === pos[1])

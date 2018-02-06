@@ -13,7 +13,7 @@ class Portal extends Component {
 
   render () {
     const { square, position } = this.props
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
+    const material = new THREE.MeshBasicMaterial({ color: 0xe74c3c })
 
     return (<planeBuffer
       material={material}

@@ -7,3 +7,4 @@ export const addBlocks = count => dispatch({ type: constants.ADD_AVAILABLE_BLOCK
 export const addMoney = count => dispatch({ type: constants.ADD_AVAILABLE_MONEY, payload: count })
 
 export const playerBlockUsed = () => dispatch({ type: constants.PLAYER_BLOCK_USED })
+export const playerMoneySpent = amount => dispatch({ type: constants.PLAYER_MONEY_SPENT, payload: amount })

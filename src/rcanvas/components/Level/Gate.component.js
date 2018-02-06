@@ -6,7 +6,7 @@ import { graphToGlobal } from 'rcanvas/common/helpers'
 class Gate extends Component {
   render () {
     const { square, position } = this.props
-    const material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
+    const material = new THREE.MeshBasicMaterial({ color: 0x2ecc71 })
 
     return (<planeBuffer
       material={material}

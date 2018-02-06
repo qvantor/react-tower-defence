@@ -1,8 +1,8 @@
-import { select, takeEvery, put } from 'redux-saga/effects'
+import { select, takeEvery } from 'redux-saga/effects'
 
-import { playerBlockUsed } from 'reducers/player/player.actions'
-import { addBlock, checkBlockPos } from 'reducers/graph/graph.actions'
-import { buildBlockToggle } from 'reducers/game/game.actions'
+import { playerBlockUsed, playerMoneySpent } from 'reducers/player/player.actions'
+import { addBlock, checkBlockPos, checkWeaponPos } from 'reducers/graph/graph.actions'
+import { buildBlockToggle, addWeapon, buildWeaponClear } from 'reducers/game/game.actions'
 
 import * as gConst from 'reducers/game/game.constants'
 
@@ -15,12 +15,18 @@ export default function* () {
     if (blockBuild || weaponBuild) {
       if (blockBuild) {
         if (!checkBlockPos(hover)) return
-        const blocks = yield select(({ player }) => player.blocks)
         addBlock({ position: hover })
         playerBlockUsed()
-        if (blocks === 1) buildBlockToggle()
+        const blocks = yield select(({ player }) => player.blocks)
+        if (blocks <= 0) buildBlockToggle()
       } else {
+        if (!checkWeaponPos(hover)) return
+        const weapon = yield select(({ weapons }) => weapons.find(item => item.id === weaponBuild))
 
+        addWeapon({ weapon, position: hover })
+        playerMoneySpent(weapon.price)
+        const money = yield select(({ player }) => player.money)
+        if (money < weapon.price) buildWeaponClear()
       }
     }
   })

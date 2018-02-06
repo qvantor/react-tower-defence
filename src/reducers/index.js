@@ -6,6 +6,7 @@ import config from './config/config.reducer'
 import graph from './graph/graph.reducer'
 import player from './player/player.reducer'
 import game from './game/game.reducer'
+import weapons from './weapons/weapons.reducer'
 
 export default combineReducers({
   levels,
@@ -13,5 +14,6 @@ export default combineReducers({
   config,
   graph,
   player,
-  game
+  game,
+  weapons
 })

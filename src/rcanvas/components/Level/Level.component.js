@@ -13,6 +13,8 @@ import HoverHelper from './HoverHelper.component'
 import Blocks from '../Blocks/Blocks.component'
 import Path from '../Path/Path.component'
 import BlockBuild from '../BlockBuild/BlockBuild.component'
+import WeaponBuild from '../WeaponBuild/WeaponBuild.component'
+import Weapons from '../Weapons/Weapons.component'
 
 class Level extends Component {
   render () {
@@ -28,6 +30,8 @@ class Level extends Component {
         <Path />
         <BlockBuild />
         <HoverHelper />
+        <WeaponBuild />
+        <Weapons />
       </group>
     )
   }

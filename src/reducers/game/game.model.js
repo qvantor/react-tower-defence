@@ -4,6 +4,7 @@ export default Immutable({
   waveActive: false,
   gateHP: 0,
   activeEnemies: [],
+  weapons: [],
   blockBuild: false,
   weaponBuild: false
 })

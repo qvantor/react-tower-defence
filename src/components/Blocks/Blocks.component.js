@@ -9,7 +9,9 @@ class Blocks extends Component {
     return (
       <div>
         <h4>Blocks</h4>
-        {blocks >= 1 && <h6 onClick={buildBlockToggle}>Add block ({blocks})</h6>}
+        <h6
+          className={blocks <= 0 ? 'unactive' : ''}
+          onClick={e => blocks > 0 && buildBlockToggle()}>Add block ({blocks})</h6>
       </div>
     )
   }
