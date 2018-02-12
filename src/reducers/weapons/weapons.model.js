@@ -13,7 +13,7 @@ export default Immutable([
     id: 'cnn',
     name: 'Cannon',
     price: 70,
-    radius: 70,
+    radius: 120,
     damage: 10,
     speed: 200
   }

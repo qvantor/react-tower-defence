@@ -11,6 +11,12 @@ export default function game (state = Model, { type, payload }) {
       return state.merge({ blockBuild: false, weaponBuild: false })
     case constants.WEAPON_ADDED:
       return state.merge({ weapons: [...state.weapons, payload] })
+    case constants.GAME_WAVE_STARTED:
+      return state.merge({ waveActive: true })
+    case constants.GAME_ENEMY_SPAWNED:
+      return state.merge({ activeEnemies: [...state.activeEnemies, payload] })
+    case constants.GAME_ENEMIES_MOVED:
+      return state.merge({ activeEnemies: state.activeEnemies.map((item, i) => item.merge({ position: payload[i] })) })
     default:
       return state
   }

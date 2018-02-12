@@ -11,7 +11,7 @@ class HoverHelper extends Component {
     const { square, hover } = this.props
 
     // const color = checkPosition(hover) ? 0x2ecc71 : 0xe74c3c
-    const material = new THREE.MeshBasicMaterial({ color: 0x2ecc71, transparent: true, opacity: .7 })
+    const material = new THREE.MeshBasicMaterial({ color: 0xecf0f1, transparent: true, opacity: .7 })
 
     return (<planeBuffer
       material={material}

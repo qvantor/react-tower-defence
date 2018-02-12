@@ -1,16 +1,14 @@
 import Immutable from 'seamless-immutable'
 
-export default Immutable({
-  list: [
-    {
-      id: 1,
-      enemies: [
-        {
-          enemyId: 1,
-          count: 50,
-          appear: 500
-        }
-      ]
-    }
-  ]
-})
+export default Immutable([
+  {
+    id: 1,
+    enemies: [
+      {
+        enemyId: 1,
+        count: 1,
+        appear: 500
+      }
+    ]
+  }
+])

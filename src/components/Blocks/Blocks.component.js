@@ -4,7 +4,9 @@ import { buildBlockToggle } from 'reducers/game/game.actions'
 
 class Blocks extends Component {
   render () {
-    const { blocks } = this.props
+    const { blocks, waveActive } = this.props
+
+    if (waveActive) return null
 
     return (
       <div>
@@ -19,7 +21,8 @@ class Blocks extends Component {
 
 const mapStateToProps = state => {
   return {
-    blocks: state.player.blocks
+    blocks: state.player.blocks,
+    waveActive: state.game.waveActive
   }
 }
 export default connect(mapStateToProps)(Blocks)

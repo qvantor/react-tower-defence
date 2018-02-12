@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import Blocks from './Blocks/Blocks.component'
 import Weapons from './Weapons/Weapons.component'
 import Money from './Money/Money.component'
+import Waves from './Waves/Waves.component'
 
 export default class App extends Component {
   render () {
@@ -16,6 +17,7 @@ export default class App extends Component {
             <Money />
             <Blocks />
             <Weapons />
+            <Waves />
           </div>
         </div>
       </Provider>

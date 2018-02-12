@@ -1,3 +1,4 @@
+import * as THREE from 'three'
 import * as constants from './graph.constants'
 import Graph from 'rcanvas/common/graph'
 import { store } from 'store'
@@ -5,12 +6,22 @@ import { store } from 'store'
 const { dispatch, getState } = store
 
 let graph
+let Path
+
+export const getEnemyPos = pos => {
+  pos = pos >= 1 ? 1 : pos
+  const point = Path.getPoint(pos)
+  return [
+    ((point.x * 100) + Math.sin(pos * 100) * 20) - 50,
+    ((point.y * 100) + Math.sin(pos * 100) * 20) - 50,
+    Math.cos(pos * 100) * 20 + 30]
+}
 
 export const checkWeaponPos = pos => {
   const { graph: { blocks }, game: { weapons } } = getState()
   const collision = weapons.find(item => item.position[0] === pos[0] && item.position[1] === pos[1])
   if (collision) return false
-  
+
   return blocks.find(item => item.position[0] === pos[0] && item.position[1] === pos[1])
 }
 
@@ -40,7 +51,9 @@ const findPath = () => {
   const { levels, progress: { level } } = store.getState()
   const levelObj = levels.find(i => i.id === level)
   const path = graph.find(levelObj.portal, levelObj.gate)
-  dispatch({ type: constants.PATH_CALCULATED, payload: path.map(item => graph.idToCoord(item.id)) })
+  const calcPath = path.map(item => graph.idToCoord(item.id))
+  Path = new THREE.Path(calcPath.map(i => ({ x: i[0], y: i[1] })))
+  dispatch({ type: constants.PATH_CALCULATED, payload: calcPath })
 }
 
 export const addBlock = block => {
