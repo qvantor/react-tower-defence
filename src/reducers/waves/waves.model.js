@@ -6,8 +6,8 @@ export default Immutable([
     enemies: [
       {
         enemyId: 1,
-        count: 1,
-        appear: 500
+        count: 300,
+        appear: 10
       }
     ]
   }

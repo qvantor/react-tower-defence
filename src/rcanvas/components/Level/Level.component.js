@@ -16,6 +16,7 @@ import BlockBuild from '../BlockBuild/BlockBuild.component'
 import WeaponBuild from '../WeaponBuild/WeaponBuild.component'
 import Weapons from '../Weapons/Weapons.component'
 import Enemies from '../Enemies/Enemies.component'
+import Bullets from '../Bullets/Bullets.component'
 
 class Level extends Component {
   render () {
@@ -34,6 +35,7 @@ class Level extends Component {
         <WeaponBuild />
         <Weapons />
         <Enemies />
+        <Bullets />
       </group>
     )
   }

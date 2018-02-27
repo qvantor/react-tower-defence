@@ -17,6 +17,13 @@ export default function game (state = Model, { type, payload }) {
       return state.merge({ activeEnemies: [...state.activeEnemies, payload] })
     case constants.GAME_ENEMIES_MOVED:
       return state.merge({ activeEnemies: state.activeEnemies.map((item, i) => item.merge({ position: payload[i] })) })
+    case constants.WEAPONS_CHANGED:
+      return state.merge({
+        weapons: state.weapons.map(item => {
+          const changes = payload.find(ch => ch.id === item.weapon.id)
+          return changes ? item.merge(changes.data) : item
+        })
+      })
     default:
       return state
   }

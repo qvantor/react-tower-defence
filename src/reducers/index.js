@@ -9,6 +9,7 @@ import game from './game/game.reducer'
 import weapons from './weapons/weapons.reducer'
 import enemies from './enemies/enemies.reducer'
 import waves from './waves/waves.reducer'
+import bullets from './bullets/bullets.reducer'
 
 export default combineReducers({
   levels,
@@ -19,5 +20,6 @@ export default combineReducers({
   game,
   weapons,
   enemies,
-  waves
+  waves,
+  bullets
 })

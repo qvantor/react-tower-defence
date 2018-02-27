@@ -16,3 +16,5 @@ export const setEnemyPosition = payload => store.dispatch({ type: constants.GAME
 
 export const buildWeaponSet = weapon => dispatch({ type: constants.BUILD_WEAPON_SETTED, payload: weapon })
 export const buildWeaponClear = () => dispatch({ type: constants.BUILD_WEAPON_CLEARED })
+
+export const changeWeapons = payload => dispatch({ type: constants.WEAPONS_CHANGED, payload })

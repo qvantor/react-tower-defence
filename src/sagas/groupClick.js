@@ -23,7 +23,7 @@ export default function* () {
         if (!checkWeaponPos(hover)) return
         const weapon = yield select(({ weapons }) => weapons.find(item => item.id === weaponBuild))
 
-        addWeapon({ weapon, position: hover })
+        addWeapon({ weapon, position: hover, overheat: 0 })
         playerMoneySpent(weapon.price)
         const money = yield select(({ player }) => player.money)
         if (money < weapon.price) buildWeaponClear()

@@ -1,0 +1,3 @@
+export const BULLET_ADDED = 'BULLET_ADDED'
+
+export const BULLETS_MOVED = 'BULLETS_MOVED'

@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import * as THREE from 'three'
+
+import Enemy from './Enemy.component'
 
 import { getEnemyPos } from 'reducers/graph/graph.actions'
-
-const geometry = new THREE.SphereBufferGeometry(7, 32, 32)
-const material = new THREE.MeshBasicMaterial({ color: 0x9c88ff })
-const mesh = new THREE.Mesh(geometry, material)
 
 class Enemies extends Component {
   render () {
@@ -14,11 +11,7 @@ class Enemies extends Component {
 
     return (
       <group>
-        {enemies.map((item, i) =>
-          <mesh
-            key={item.id}
-            mesh={mesh}
-            position={getEnemyPos(item.position)} />)}
+        {enemies.map(item => <Enemy key={item.id} position={getEnemyPos(item.position)} />)}
       </group>
     )
   }
