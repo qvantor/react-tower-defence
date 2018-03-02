@@ -8,26 +8,32 @@ export default class Container extends Events {
   constructor (canvas) {
     super(canvas)
     this.canvas = canvas
-    this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 100000)
-    this.scene = new THREE.Scene()
-    this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
-    this.renderer.setPixelRatio(window.devicePixelRatio)
-    this.renderer.setSize(window.innerWidth, window.innerHeight)
-    this.canvas.appendChild(this.renderer.domElement)
-    this.camera.position.z = 100
-    this.controls = new TrackballControls(this.camera)
-
-    this.stats = new Stats()
-    this.canvas.appendChild(this.stats.dom)
-    this.animate()
+    // this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 100000)
+    // this.scene = new THREE.Scene()
+    // this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
+    // this.renderer.setPixelRatio(window.devicePixelRatio)
+    // this.renderer.setSize(window.innerWidth, window.innerHeight)
+    // this.canvas.appendChild(this.renderer.domElement)
+    // this.camera.position.z = 10
+    // this.controls = new TrackballControls(this.camera)
+    //
+    // this.stats = new Stats()
+    // this.canvas.appendChild(this.stats.dom)
+    // this.animate()
   }
 
   animate = () => {
+    requestAnimationFrame(this.animate)
+
     this.stats.begin()
     this.renderer.render(this.scene, this.camera)
     this.controls.update()
     this.stats.end()
-    requestAnimationFrame(this.animate)
+  }
+
+  append = (scene) => {
+    scene.initialize(this)
+    this.scene = scene
   }
 
   // Add a child to the end of existing list of children

@@ -21,8 +21,8 @@ export default class Events {
     event.preventDefault()
     this.mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1
     this.mouse.y = -( event.clientY / window.innerHeight ) * 2 + 1
-    this.raycaster.setFromCamera(this.mouse, this.camera)
-    const intersects = this.raycaster.intersectObjects(this.scene.children, true)
+    this.raycaster.setFromCamera(this.mouse, this.scene.camera)
+    const intersects = this.raycaster.intersectObjects(this.scene.root.children, true)
     this._intersection = intersects[0]
 
     if (!this._intersection) {

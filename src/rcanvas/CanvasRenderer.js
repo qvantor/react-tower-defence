@@ -71,7 +71,7 @@ const RendererHostConfig = {
     },
 
     appendChildToContainer (parentInstance, child) {
-      parentInstance.scene.add(child.root)
+      parentInstance.append(child)
     },
 
     removeChild (parentInstance, child) {

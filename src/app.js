@@ -1,6 +1,5 @@
 import React from 'react'
 import { render } from 'react-dom'
-// import './canvas'
 import 'babel-polyfill'
 import './rcanvas/app'
 

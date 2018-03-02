@@ -1,25 +1,22 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
-
-import Blocks from './Blocks/Blocks.component'
-import Weapons from './Weapons/Weapons.component'
-import Money from './Money/Money.component'
-import Waves from './Waves/Waves.component'
+import AddModels from './AddModels/AddModels.component'
+import SceneTree from './SceneTree/SceneTree.component'
 
 export default class App extends Component {
   render () {
     const { store } = this.props
     return (
       <Provider store={store}>
-        <div className='container-fluid custom-container'>
-          <div className='col-md-offset-10 col-md-2 controls'>
-            <Money />
-            <Blocks />
-            <Weapons />
-            <Waves />
+        <main>
+          <div className='container-fluid'>
+            <div className='col-md-3 col-md-offset-9 sidebar'>
+              <AddModels />
+              <SceneTree />
+            </div>
           </div>
-        </div>
+        </main>
       </Provider>
     )
   }

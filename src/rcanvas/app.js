@@ -5,4 +5,6 @@ import { store } from '../store/'
 
 import App from './components/app.component'
 
-render(<App store={store} />, document.getElementById('canvas'))
+const canvas = document.getElementById('canvas')
+
+render(<App store={store} canvas={canvas} />, canvas)

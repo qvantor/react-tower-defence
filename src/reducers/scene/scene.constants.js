@@ -1,0 +1,1 @@
+export const SCENE_MODEL_ADDED = 'SCENE_MODEL_ADDED'
