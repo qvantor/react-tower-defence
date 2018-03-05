@@ -6,6 +6,7 @@ import createInstance from './core/createInstance'
 
 const RendererHostConfig = {
   appendInitialChild (parentInstance, child) {
+    if (!child.root) return
     parentInstance.root.add(child.root)
   },
 

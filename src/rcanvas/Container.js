@@ -7,6 +7,7 @@ import TrackballControls from './modules/trackballControls'
 export default class Container extends Events {
   constructor (canvas) {
     super(canvas)
+    console.log(canvas)
     this.canvas = canvas
     // this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 100000)
     // this.scene = new THREE.Scene()

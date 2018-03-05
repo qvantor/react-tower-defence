@@ -3,7 +3,7 @@ const webpack = require('webpack') //to access built-in plugins
 const path = require('path')
 
 const config = {
-  // devtool: 'inline-cheap-source-map',
+  devtool: 'inline-cheap-source-map',
   entry: './src/app.js',
   output: {
     path: path.resolve(__dirname, 'dist'),

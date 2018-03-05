@@ -9,6 +9,7 @@ export default class scene extends Component {
     super(prop)
     this.root = new THREE.Scene()
     this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
+    this.renderer.setPixelRatio(window.devicePixelRatio)
   }
 
   initialize = (parent) => {

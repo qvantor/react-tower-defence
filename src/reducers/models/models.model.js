@@ -10,6 +10,5 @@ export default Immutable([
     type: 'geometry',
     name: 'Box',
     component: 'boxBuffer'
-
   }
 ])
