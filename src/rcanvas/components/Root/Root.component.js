@@ -12,6 +12,7 @@ class Root extends Component {
         <perspectiveCamera
           position={[0, 0, 10]}
           name='justCamera' />
+        <gridHelper />
       </group>
     )
   }

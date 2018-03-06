@@ -1,5 +1,6 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~antd/dist/antd.css";
+@import "timeline";
 
 #canvas {
   position: relative;
@@ -21,16 +22,10 @@
     height: 100vh;
     top: 0;
     .container-fluid {
-      padding: 0;
       .sidebar {
         background: #ecf0f1;
         height: 100vh;
         //color: #fff;
-      }
-      .timeline {
-        background: #bdc3c7;
-        margin-top: 70vh;
-        height: 30vh;
       }
     }
   }

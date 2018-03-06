@@ -4,11 +4,16 @@ export default Immutable([
   {
     type: 'object',
     name: 'Group',
-    component: 'group'
+    Component: 'group'
   },
   {
     type: 'geometry',
     name: 'Box',
-    component: 'boxBuffer'
+    Component: 'boxBuffer'
+  },
+  {
+    type: 'geometry',
+    name: 'Circle',
+    Component: 'circleBuffer'
   }
 ])

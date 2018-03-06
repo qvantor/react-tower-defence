@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Button from 'antd/lib/button'
-
-const { Group } = Button
+import Buttons from './Buttons.component'
+import Time from './Time.component'
+import TimelineSvg from '../TimelineSvg/TimelineSvg.component'
 
 class Timeline extends Component {
 
@@ -10,18 +10,20 @@ class Timeline extends Component {
     const {} = this.props
 
     return (
-      <div className='row'>
-        <div className='col-md-3'>
-          <Group>
-            <Button type='primary' icon='step-backward' />
-            <Button type='primary' icon='play-circle-o' />
-            <Button type='primary' icon='step-forward' />
-            <Button type='primary' icon='setting' />
-          </Group>
+      <div>
+        <div className='row'>
+          <div className='col-md-4'>
+            <div className='row'>
+              <div className='col-md-4'>
+                <Time />
+              </div>
+              <div className='col-md-8'>
+                <Buttons />
+              </div>
+            </div>
+          </div>
         </div>
-        <div className='col-md-9'>
-
-        </div>
+        <TimelineSvg />
       </div>
     )
   }

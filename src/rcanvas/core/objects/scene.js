@@ -1,5 +1,6 @@
 import React from 'react'
 import Component from './component'
+import Stats from 'stats.js'
 import * as THREE from 'three'
 
 import TrackballControls from '../../modules/trackballControls'
@@ -10,11 +11,13 @@ export default class scene extends Component {
     this.root = new THREE.Scene()
     this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
     this.renderer.setPixelRatio(window.devicePixelRatio)
+    this.stats = new Stats()
   }
 
   initialize = (parent) => {
     this.parent = parent
     parent.canvas.appendChild(this.renderer.domElement)
+    parent.canvas.appendChild(this.stats.dom)
 
     window.addEventListener('resize', this.onResize)
 
@@ -49,7 +52,9 @@ export default class scene extends Component {
 
   animate = () => {
     requestAnimationFrame(this.animate)
+    this.stats.begin()
     this.renderer.render(this.root, this.camera)
     this.controls.update()
+    this.stats.end()
   }
 }

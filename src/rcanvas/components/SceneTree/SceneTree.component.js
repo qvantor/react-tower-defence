@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import SceneObject from './SceneObject.component'
+
 class SceneTree extends Component {
   renderTree = (nodes) => {
-    return nodes.map(({ component, id, children }) => {
-      const TagName = component
-      return (<TagName key={id}>
-        {children.length && this.renderTree(children)}
-      </TagName>)
+    return nodes.map(node => {
+      return (<SceneObject key={node.id} node={node}>
+        {node.children.length ? this.renderTree(node.children) : null}
+      </SceneObject>)
     })
   }
 
