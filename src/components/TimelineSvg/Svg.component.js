@@ -19,8 +19,9 @@ class Svg extends Component {
       <div className='svg'>
         <svg height={height} width={width + (padding * 2)}>
           <g transform={`translate(${padding},${padding})`}>
-            <XAxis scale={xScale} />
+            <XAxis scale={xScale} width={width}/>
             <Line scale={xScale} height={height} />
+            {/*<rect className='bg-rect' style={{ width: width, height: height }} />*/}
           </g>
         </svg>
       </div>

@@ -18,6 +18,9 @@
       .svg {
         display: inline-block;
         svg {
+          .bg-rect {
+            fill: transparent;
+          }
           .line-time {
             stroke: #e74c3c;
           }
