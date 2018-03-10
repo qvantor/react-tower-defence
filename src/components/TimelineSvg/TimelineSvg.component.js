@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Svg from './Svg.component'
+import Controls from './Controls.component'
 
 class TimelineSvg extends Component {
   state = { width: 500, height: 300 }
@@ -10,15 +11,18 @@ class TimelineSvg extends Component {
   }
 
   render () {
-    const {} = this.props
+    const { scene } = this.props
     const { width, height } = this.state
+    const scrollHeight = 2000
+    const scrollWidth = 2000
+
+    const timelinePercent = 0.7
 
     return (
-      <div className='row' ref='element'>
-        <div className='col-md-4'>
-        </div>
-        <div className='col-md-8' ref='container'>
-          <Svg width={width} height={height} />
+      <div className='timeline' ref='element'>
+        <div className='scroll-y' style={{ height: scrollHeight }}>
+          <Controls width={width * (1 - timelinePercent) - 45} />
+          <Svg height={scrollHeight} width={width * timelinePercent} />
         </div>
       </div>
     )
@@ -26,6 +30,8 @@ class TimelineSvg extends Component {
 }
 
 const mapStateToProps = state => {
-  return {}
+  return {
+    scene: state.scene
+  }
 }
 export default connect(mapStateToProps)(TimelineSvg)

@@ -8,6 +8,7 @@ export default function timeline (state = Model, { type, payload }) {
     case constants.TIMELINE_PAUSE:
       return state.merge({ play: false })
     case constants.TIMELINE_TIME_SETTED:
+      state.merge({ time: payload })
       return state.merge({ time: payload })
     default:
       return state

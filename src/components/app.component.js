@@ -13,7 +13,7 @@ export default class App extends Component {
         <main>
           <div className='container-fluid'>
             <div className='row'>
-              <div className='col-md-9 timeline'>
+              <div className='col-md-9 bottombar'>
                 <Timeline />
               </div>
               <div className='col-md-3  sidebar'>

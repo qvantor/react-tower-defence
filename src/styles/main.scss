@@ -1,11 +1,12 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~antd/dist/antd.css";
-@import "timeline";
+
+$canvasHeight: 50vh;
 
 #canvas {
   position: relative;
   z-index: 10;
-  height: 70vh;
+  height: $canvasHeight;
   width: 75%;
   canvas {
     width: 100%;
@@ -30,3 +31,6 @@
     }
   }
 }
+
+
+@import "timeline";

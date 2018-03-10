@@ -2,23 +2,25 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import * as d3Scale from 'd3-scale'
-import XAxis from './xAxis'
+import XAxis from './xAxis.svg'
+import Line from './Line.svg'
 
 class Svg extends Component {
   render () {
-    const { scene, duration, width, height } = this.props
-    const widthScene = 3000
-    const heightScene = 300
+    const { scene, duration, height, width } = this.props
 
     const xScale = d3Scale.scaleLinear()
       .domain([0, duration])
-      .range([0, widthScene])
+      .range([0, width])
+
+    const padding = 15
 
     return (
       <div className='svg'>
-        <svg width={widthScene + 30} height={height}>
-          <g transform='translate(10,10)'>
-            <XAxis scale={xScale} transform={`translate(0,${height})`} />
+        <svg height={height} width={width + (padding * 2)}>
+          <g transform={`translate(${padding},${padding})`}>
+            <XAxis scale={xScale} />
+            <Line scale={xScale} height={height} />
           </g>
         </svg>
       </div>

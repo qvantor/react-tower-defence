@@ -1,20 +1,28 @@
-.timeline {
+.bottombar {
   background: #bdc3c7;
-  margin-top: 70vh;
-  height: 30vh;
+  margin-top: $canvasHeight;
+  height: 100vh - $canvasHeight;
   padding: 5px;
 
-  .time {
-    font-size: 20px;
-    color: #2c3e50;
-    text-align: center;
-  }
+  .timeline {
+    position: absolute;
+    width: calc(100% - 10px);
+    height: calc(100% - 40px);
+    overflow-y: scroll;
 
-  .svg {
-    overflow: scroll;
-    height: 100%;
-    svg {
-      overflow: scroll;
+    .scroll-y {
+      .controls {
+        display: inline-block;
+        height: 100%;
+      }
+      .svg {
+        display: inline-block;
+        svg {
+          .line-time {
+            stroke: #e74c3c;
+          }
+        }
+      }
     }
   }
 }
