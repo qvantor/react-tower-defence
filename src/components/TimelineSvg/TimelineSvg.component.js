@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Svg from './Svg.component'
+import Svg from './Svg/Svg.component'
 import Controls from './Controls.component'
 
 class TimelineSvg extends Component {
@@ -21,8 +21,15 @@ class TimelineSvg extends Component {
     return (
       <div className='timeline' ref='element'>
         <div className='scroll-y' style={{ height: scrollHeight }}>
-          <Controls width={width * (1 - timelinePercent) - 45} />
-          <Svg height={scrollHeight} width={width * timelinePercent} />
+          <div className='col-md-3 no-padding'>
+            <Controls scene={scene} />
+          </div>
+          <div className='col-md-9 no-padding'>
+            <Svg
+              scene={scene}
+              height={scrollHeight}
+              width={width * timelinePercent} />
+          </div>
         </div>
       </div>
     )

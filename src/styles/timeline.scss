@@ -14,6 +14,17 @@
       .controls {
         display: inline-block;
         height: 100%;
+        width: 100%;
+        margin-top: 40px;
+
+        .scene-item {
+          margin: 5px 0;
+          width: 100%;
+          border-bottom: 1px solid rgba(0, 0, 0, .2);
+        }
+        .children {
+          padding-left: 10px;
+        }
       }
       .svg {
         display: inline-block;
@@ -23,6 +34,16 @@
           }
           .line-time {
             stroke: #e74c3c;
+          }
+          .time-editor {
+            .brush {
+              .time-rect {
+                fill: #34495e;
+              }
+              .handle {
+                cursor: ew-resize;
+              }
+            }
           }
         }
       }

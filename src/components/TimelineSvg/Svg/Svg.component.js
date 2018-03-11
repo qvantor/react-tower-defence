@@ -4,10 +4,11 @@ import { connect } from 'react-redux'
 import * as d3Scale from 'd3-scale'
 import XAxis from './xAxis.svg'
 import Line from './Line.svg'
+import TimeEditor from './TimeEditor.svg'
 
 class Svg extends Component {
   render () {
-    const { scene, duration, height, width } = this.props
+    const { duration, height, width, scene } = this.props
 
     const xScale = d3Scale.scaleLinear()
       .domain([0, duration])
@@ -18,8 +19,9 @@ class Svg extends Component {
     return (
       <div className='svg'>
         <svg height={height} width={width + (padding * 2)}>
-          <g transform={`translate(${padding},${padding})`}>
-            <XAxis scale={xScale} width={width}/>
+          <g transform={`translate(5,${padding})`}>
+            <TimeEditor scale={xScale} scene={scene} />
+            <XAxis scale={xScale} width={width} />
             <Line scale={xScale} height={height} />
             {/*<rect className='bg-rect' style={{ width: width, height: height }} />*/}
           </g>
@@ -31,7 +33,6 @@ class Svg extends Component {
 
 const mapStateToProps = state => {
   return {
-    scene: state.scene,
     duration: state.timeline.duration
   }
 }
