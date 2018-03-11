@@ -16,7 +16,7 @@ class TimelineSvg extends Component {
     const scrollHeight = 2000
     const scrollWidth = 2000
 
-    const timelinePercent = 0.7
+    const timelinePercent = 0.73
 
     return (
       <div className='timeline' ref='element'>
@@ -27,7 +27,7 @@ class TimelineSvg extends Component {
           <div className='col-md-9 no-padding'>
             <Svg
               scene={scene}
-              height={scrollHeight}
+              height={height}
               width={width * timelinePercent} />
           </div>
         </div>

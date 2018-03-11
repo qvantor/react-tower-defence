@@ -27,23 +27,28 @@
         }
       }
       .svg {
-        display: inline-block;
-        svg {
-          .bg-rect {
-            fill: transparent;
+        position: fixed;
+        .bg-rect {
+          fill: transparent;
+        }
+        .line-time {
+          stroke: #e74c3c;
+        }
+      }
+      .time-editor {
+        position: absolute;
+        z-index: 10;
+        top: 40px;
+        padding: 0 5px;
+        .brush {
+          .time-rect {
+            margin: 5px 0;
+            background: #34495e;
           }
-          .line-time {
-            stroke: #e74c3c;
-          }
-          .time-editor {
-            .brush {
-              .time-rect {
-                fill: #34495e;
-              }
-              .handle {
-                cursor: ew-resize;
-              }
-            }
+          .handle {
+            position: absolute;
+            cursor: ew-resize;
+            background: #000;
           }
         }
       }
