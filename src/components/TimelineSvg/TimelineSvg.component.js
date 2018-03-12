@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Svg from './Svg/Svg.component'
 import Controls from './Controls.component'
+import Buttons from '../Timeline/Buttons.component'
+import Time from '../Timeline/Time.component'
 
 class TimelineSvg extends Component {
   state = { width: 500, height: 300 }
@@ -22,6 +24,16 @@ class TimelineSvg extends Component {
       <div className='timeline' ref='element'>
         <div className='scroll-y' style={{ height: scrollHeight }}>
           <div className='col-md-3 no-padding'>
+
+            <div className='row'>
+              <div className='col-md-4'>
+                <Time />
+              </div>
+              <div className='col-md-8'>
+                <Buttons />
+              </div>
+            </div>
+
             <Controls scene={scene} />
           </div>
           <div className='col-md-9 no-padding'>

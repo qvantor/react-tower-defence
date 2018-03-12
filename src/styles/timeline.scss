@@ -1,3 +1,6 @@
+$openParamsHeight: 30px;
+$rowHeight: 20px;
+
 .bottombar {
   background: #bdc3c7;
   margin-top: $canvasHeight;
@@ -15,12 +18,20 @@
         display: inline-block;
         height: 100%;
         width: 100%;
-        margin-top: 40px;
+        margin-top: 8px;
 
         .scene-item {
-          margin: 5px 0;
+          margin: 5px 0 0 0;
           width: 100%;
-          border-bottom: 1px solid rgba(0, 0, 0, .2);
+        }
+        .open-params {
+          height: $openParamsHeight;
+          .params-row {
+            height: $rowHeight;
+            line-height: $rowHeight;
+            border-top: 1px solid rgba(0, 0, 0, .2);
+            border-bottom: 1px solid rgba(0, 0, 0, .2);
+          }
         }
         .children {
           padding-left: 10px;
@@ -40,15 +51,36 @@
         z-index: 10;
         top: 40px;
         padding: 0 5px;
-        .brush {
-          .time-rect {
-            margin: 5px 0;
-            background: #34495e;
+        .scene-item {
+          .brush {
+            .time-rect {
+              margin: 5px 0 0 0;
+              background: #34495e;
+            }
+            .handle {
+              position: absolute;
+              cursor: ew-resize;
+              background: #000;
+            }
           }
-          .handle {
-            position: absolute;
-            cursor: ew-resize;
-            background: #000;
+          .open-params {
+            height: $openParamsHeight;
+            .params-row {
+              position: relative;
+              height: $rowHeight;
+              line-height: $rowHeight;
+              border-top: 1px solid rgba(0, 0, 0, .2);
+              border-bottom: 1px solid rgba(0, 0, 0, .2);
+
+              .keyframe {
+                position: absolute;
+                transform: rotate(45deg);
+                width: $rowHeight/2;
+                background: #ecf0f1;
+                margin-top: $rowHeight/5;
+                height: $rowHeight/2;
+              }
+            }
           }
         }
       }
