@@ -16,7 +16,8 @@ export default class scene extends Component {
 
   initialize = (parent) => {
     this.parent = parent
-    parent.canvas.appendChild(this.renderer.domElement)
+    this.canvas = this.renderer.domElement
+    parent.canvas.appendChild(this.canvas)
     parent.canvas.appendChild(this.stats.dom)
 
     window.addEventListener('resize', this.onResize)

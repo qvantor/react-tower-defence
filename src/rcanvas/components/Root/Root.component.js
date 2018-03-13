@@ -8,10 +8,12 @@ class Root extends Component {
 
     return (
       <group>
-        <SceneTree />
-        <perspectiveCamera
-          position={[0, 0, 10]}
-          name='justCamera' />
+        <group name='intersections'>
+          <SceneTree />
+          <perspectiveCamera
+            position={[0, 0, 10]}
+            name='justCamera' />
+        </group>
         <gridHelper />
       </group>
     )

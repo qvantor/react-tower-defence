@@ -12,6 +12,16 @@ export default class Events {
     canvas.addEventListener('click', this.onClick, false)
   }
 
+  getEventObject (intersection) {
+    return {
+      propagation: true,
+      stopPropagation: function () {
+        this.propagation = false
+      },
+      intersection
+    }
+  }
+
   onClick = event => {
     if (this._intersection)
       this.sendEvent(this._intersection, this._intersection.object, 'onClick')
@@ -19,10 +29,11 @@ export default class Events {
 
   onMouseMove = event => {
     event.preventDefault()
-    this.mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1
-    this.mouse.y = -( event.clientY / window.innerHeight ) * 2 + 1
+    const { width, height } = this.scene.canvas.getBoundingClientRect()
+    this.mouse.x = (event.clientX / width) * 2 - 1
+    this.mouse.y = -(event.clientY / height) * 2 + 1
     this.raycaster.setFromCamera(this.mouse, this.scene.camera)
-    const intersects = this.raycaster.intersectObjects(this.scene.root.children, true)
+    const intersects = this.raycaster.intersectObjects(this.intersections.children, true)
     this._intersection = intersects[0]
 
     if (!this._intersection) {
@@ -47,9 +58,11 @@ export default class Events {
   }
 
   sendEvent = (intersection, object, event) => {
+    const eventObj = this.getEventObject(intersection)
     if (object.userData[event]) {
-      object.userData[event](intersection)
+      object.userData[event](eventObj)
     }
+    if (eventObj.propagation === false) return
     if (object.parent) {
       this.sendEvent(intersection, object.parent, event)
     }

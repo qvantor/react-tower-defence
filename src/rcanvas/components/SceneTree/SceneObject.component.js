@@ -36,6 +36,10 @@ class SceneObject extends Component {
     const { position, rotation } = calculateMainProps(keyframes, time)
 
     return (<Component
+      onClick={e => {
+        e.stopPropagation()
+        console.log(Component, e)
+      }}
       ref='this'
       position={position}
       rotation={rotation}>{children}</Component>)

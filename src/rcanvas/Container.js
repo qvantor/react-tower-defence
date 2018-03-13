@@ -34,6 +34,7 @@ export default class Container extends Events {
   append = (scene) => {
     scene.initialize(this)
     this.scene = scene
+    this.intersections = this.scene.root.getObjectByName('intersections')
   }
 
   // Add a child to the end of existing list of children

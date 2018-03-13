@@ -6,5 +6,6 @@ export default class group extends Component {
   constructor (prop) {
     super(prop)
     this.root = new THREE.Group()
+    this.root.name = prop.name
   }
 }
