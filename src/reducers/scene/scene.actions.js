@@ -13,10 +13,10 @@ export const addModel = model => {
       children: [],
       start: 0,
       end: duration,
-      keyFramesStart: 0,
-      keyFramesEnd: 10000,
+      keyframesStart: 0,
+      keyframesEnd: 10000,
       open: false,
-      keyFrames: [
+      keyframes: [
         { id: guid(), time: 0, position: [0, 0, 0], rotation: [0, 0, 0] },
         {
           id: guid(),
@@ -35,4 +35,9 @@ export const setModelProp = (id, prop) => dispatch({ type: constants.SCENE_MODEL
 export const putChildInParent = (child, parent) => dispatch({
   type: constants.SCENE_MODEL_REPLACED,
   payload: { child, parent }
+})
+
+export const changeModelKeyframe = payload => dispatch({
+  type: constants.SCENE_KEYFRAME_CHANGED,
+  payload
 })

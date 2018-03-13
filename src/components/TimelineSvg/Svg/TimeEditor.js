@@ -27,7 +27,7 @@ class TimeEditor extends Component {
               ref={el => d3Select(el).call(drag().on('drag', () => setModelProp(item.id, { end: Math.round(scale.invert(mouse(this.refs.parent)[0])) })))} />
             <div className='time-rect' style={{ height, width }} />
           </div>
-          {item.open && <TimeEditorOpen keyframes={item.keyFrames} scale={scale} />}
+          {item.open && <TimeEditorOpen id={item.id} keyframes={item.keyframes} scale={scale} />}
         </div>
         {item.children.length > 0 && this.renderScene(item.children)}
       </div>)

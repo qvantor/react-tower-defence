@@ -30,10 +30,10 @@ class SceneObject extends Component {
   }
 
   render () {
-    const { node: { Component, keyFrames, start, end }, children, time } = this.props
+    const { node: { Component, keyframes, start, end }, children, time } = this.props
     if (!(start <= time && time <= end)) return null
 
-    const { position, rotation } = calculateMainProps(keyFrames, time)
+    const { position, rotation } = calculateMainProps(keyframes, time)
 
     return (<Component
       ref='this'

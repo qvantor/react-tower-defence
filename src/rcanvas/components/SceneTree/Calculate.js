@@ -12,9 +12,15 @@ export const calculateMainProps = (frames, time) => {
       position: paramsByProp(prop, startFrame.position, endFrame.position),
       rotation: paramsByProp(prop, startFrame.rotation, endFrame.rotation)
     }
+  } else {
+    const firstFrame = frames[0]
+    const lastFrame = frames[frames.length - 1]
+    let frame = firstFrame.time >= time ? firstFrame : lastFrame
+    return {
+      position: frame.position,
+      rotation: frame.rotation
+    }
   }
-
-  return { position: [0, 0, 0], rotation: [0, 0, 0] }
 }
 
 const paramsByProp = (prop, start, end) => {
